@@ -141,6 +141,8 @@ class GameScene: SKScene {
         n.physicsBody=move
         move.affectedByGravity=true
         move.isDynamic=true
+        if n.position.x > 0 { n.physicsBody?.velocity=CGVector(dx:-50,dy:0) }
+        else { n.physicsBody?.velocity=CGVector(dx:50,dy:0) }
     }
     
     
@@ -151,7 +153,7 @@ class GameScene: SKScene {
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
         count+=1
-        if (count%60==0){
+        if (count%180==0){
         self.drawCircle()
         }
     }
